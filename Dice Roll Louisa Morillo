@@ -1,0 +1,12 @@
+import random
+dice_sides = int(input("How many sides does your dice have?"))
+while True:   
+    user_action = input("Would you like to roll the dice? Answer Yes or No")
+    if user_action == "Yes":
+        dice_number = random.randint(1,dice_sides)
+        print(f"Your number is {dice_number}")
+    elif user_action == "No":
+        break
+    else:
+        print("Invalid response. Please enter Yes or No")
+print("Thanks for playing!")
