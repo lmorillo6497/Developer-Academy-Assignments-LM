@@ -1,13 +1,38 @@
+# Dice Roll Simulator
+
 import random
+
 dice_sides = int(input("How many sides does your dice have?"))
+
 while True:   
-    user_action = input("Would you like to roll the dice? Answer yes or no")
-    if user_action == "yes":
+
+    user_input = input("Would you like to roll the dice? Answer yes or no")
+    user_input = user_input.lower()
+
+    # first roll
+    if user_input == "yes":
+
         dice_number = random.randint(1,dice_sides)
         print(f"Your number is {dice_number}")
+        user_follow_up = input("Would you like to roll again? Answer yes or no.").lower()
+
+        # subsequent roll(s)
+        if user_follow_up == "yes":
+            dice_number = random.randint(1,dice_sides)
+            print(f"Your number is {dice_number}")
+
+        elif user_follow_up == "no":
+            print("Thanks for playing!")
+            break
+
+        # if the user enters any response other than yes or no:
+        else:
+            print("Please enter a valid response.")
+
+    elif user_input == "no":
+        print("Thanks for playing!")
         break
-    elif user_action == "no":
-        break
+
+    # if the user enters any response other than yes or no:
     else:
-        print("Invalid response. Please enter Yes or No")
-print("Thanks for playing!")
+        print("Invalid response. Please enter yes or no")
