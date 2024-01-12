@@ -1,0 +1,51 @@
+# guess the number
+
+import random
+
+lower_limit = int(input("What's the bottom of your guessing range?"))
+upper_limit = int(input("What's the upper limit of your guessing range?"))
+
+try:
+    lower_limit
+    upper_limit
+except TypeError:
+    print("Invalid inputs. Please enter integers only.")
+
+while True:
+
+    secret_number = random.randint(lower_limit,upper_limit)
+
+    player_guess_1 = int(input(f"I have chosen a number between {lower_limit} and {upper_limit}. Can you guess what it is?"))
+
+    # player's first guess
+    if player_guess_1 == secret_number:
+        print("Yay! You correctly guessed the number!")
+        break
+    
+    # player's second guess
+    else:
+        if player_guess_1 <= secret_number:
+            print("Your guess is lower than my number.")
+            player_guess_2 = int(input("Guess again?"))
+
+            if player_guess_2 == secret_number:
+                print(f"You got it! Well done! My number was {secret_number}")
+                break
+
+            else:
+                print(f"Better luck next time! My number was {secret_number}")
+                break                       
+                 
+        if player_guess_1 >= secret_number:
+            print("Your guess is higher than my number.")
+            player_guess_2 = int(input("Guess again?"))
+
+            if player_guess_2 == secret_number:
+                print(f"You got it! Well done! My number was {secret_number}")
+                break
+
+            else:
+                print(f"Better luck next time! My number was {secret_number}")
+                break
+
+            
