@@ -1,0 +1,48 @@
+# Mad Libs game
+
+# ~get inputs from the user~
+
+user_weekday = input("enter a day of the week").capitalize()
+
+user_noun = input("enter a noun").lower()
+
+user_noun_2 = input("enter another noun").title()
+
+user_animal = input("enter an animal").lower()
+if user_animal[0] in ["a","e","i","o","u"]:
+    animal_art = "an"
+else:
+    animal_art = "a"
+
+user_mood = input("how are you feeling?").lower()
+
+user_shop = input("enter a shop name").title()
+
+while True:
+    user_number = input("enter an integer")
+    # and then to ensure that the user has entered a digit so that it makes sense after a £ sign:
+    try:
+        int(user_number)
+        break
+    except ValueError:
+        pass
+
+user_location = input("enter a city, town, or village").capitalize()
+
+user_food = input("enter a food").lower()
+
+user_vehicle = input("enter a mode of transport").lower()
+vehicle_prep = ""
+    # and then to ensure that the correct preposition is applied:
+if user_vehicle in ["car","automobile","van","truck"]:
+    vehicle_prep = "in"
+else:
+    vehicle_prep = "on"
+
+# insert user inputs into the story template
+
+story_script = f"On {user_weekday}, I went to {user_location}. Things got off to a bad start when I was {vehicle_prep} the {user_vehicle}. I don't know where it came from, but I was bitten by {animal_art} {user_animal}. The creature immediately developed a taste for my blood, and all I could do to save myself and sate its hunger was to throw it my {user_food}. I shouldn't complain, because doing so saved me from mortal peril, but it did mean that I had no lunch. As soon as I reached {user_location} I had to dash to {user_shop} in search of more {user_food} - but they were cleared out! I had to settle for some {user_noun}, which I found rather difficult to chew.\nFeeling {user_mood}, I opted to do some sightseeing. I can't say that I was particularly impressed by {user_location}'s selection of tourism hotspots. I spent £{user_number} on a ticket for the {user_location} Museum of {user_noun_2}. What a rip-off! I decided to cut my losses and head home."
+
+# print the completed story
+
+print(story_script)
